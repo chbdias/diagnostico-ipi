@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diagnóstico de Expansão Internacional | Índice de Prontidão Internacional</title>
+<meta name="description" content="Descubra o que está impedindo você de vender seu conhecimento em espanhol. Responda 13 perguntas e receba seu Índice de Prontidão Internacional." />
+
+<!-- ============================================================
+  META PIXEL — troque SEU_PIXEL_ID pelo ID real antes de publicar
+============================================================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'SEU_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy: #0B1A2B;
+    --navy-deep: #07111C;
+    --navy-card: #122337;
+    --gold: #C9A24B;
+    --gold-soft: #E8D9AE;
+    --teal: #2C7A75;
+    --cream: #F6F1E6;
+    --ink: #0B1A2B;
+    --muted: #9FB0C3;
+    --danger: #C9645B;
+    --ok: #4F9D7C;
+    --radius: 14px;
+    --maxw: 560px;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,162,75,0.16), transparent 60%), var(--navy);
+    color: var(--cream);
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3,.serif{
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  #app{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .topbar{
+    padding: 20px 0 10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .topbar .brand{
+    font-family:'Fraunces', serif;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    opacity: 0.85;
+  }
+
+  .progress-track{
+    flex:1;
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    width:0%;
+    transition: width 0.4s ease;
+  }
+  .progress-label{
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .screen{
+    flex:1;
+    display:none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 0 48px;
+    animation: fadeUp 0.45s ease both;
+  }
+  .screen.active{ display:flex; }
+
+  @keyframes fadeUp{
+    from{ opacity:0; transform: translateY(10px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .screen{ animation: none; }
+    *{ transition: none !important; }
+  }
+
+  .eyebrow{
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  h1.headline{
+    font-size: 30px;
+    line-height: 1.18;
+    margin: 0 0 18px;
+    color: var(--cream);
+  }
+  h2.q-title{
+    font-size: 22px;
+    line-height: 1.3;
+    margin: 0 0 22px;
+    color: var(--cream);
+  }
+
+  p.lede{
+    font-size: 15.5px;
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+
+  .benefits{
+    list-style:none;
+    margin: 0 0 32px;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+  }
+  .benefits li{
+    display:flex;
+    align-items:flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+    color: var(--cream);
+  }
+  .benefits svg{ flex-shrink:0; margin-top:3px; }
+
+  .meta-row{
+    display:flex;
+    gap: 16px;
+    margin: 0 0 28px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .meta-row span{ display:flex; align-items:center; gap:6px; }
+
+  button, .btn{
+    font-family:'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .btn-primary{
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color: var(--navy-deep);
+    padding: 16px 28px;
+    width: 100%;
+    text-align:center;
+  }
+  .btn-primary:hover{ transform: translateY(-1px); }
+  .btn-primary:active{ transform: translateY(0); }
+  .btn-primary:disabled{ opacity:0.4; cursor:not-allowed; transform:none; }
+
+  .btn-link{
+    background:none;
+    color: var(--muted);
+    padding: 10px 0;
+    font-size: 13.5px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .options{
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+  }
+  .option{
+    text-align:left;
+    background: var(--navy-card);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--cream);
+    padding: 16px 18px;
+    border-radius: var(--radius);
+    font-size: 14.5px;
+    line-height:1.4;
+    cursor:pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+  }
+  .option:hover{ border-color: rgba(201,162,75,0.5); }
+  .option:focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }
+  .option.selected{
+    border-color: var(--gold);
+    background: rgba(201,162,75,0.12);
+  }
+
+  textarea, input[type="text"], input[type="email"], input[type="tel"]{
+    width:100%;
+    background: var(--navy-card);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--cream);
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-family:'Inter', sans-serif;
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  textarea{ min-height: 110px; resize: vertical; }
+  input:focus, textarea:focus{ outline: 2px solid var(--gold); outline-offset: 1px; }
+  label.field-label{
+    display:block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .nav-row{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-top: 18px;
+  }
+
+  /* Processing screen */
+  .processing-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap: 28px;
+  }
+  .spinner{
+    width: 56px; height:56px;
+    border-radius:50%;
+    border: 3px solid rgba(201,162,75,0.18);
+    border-top-color: var(--gold);
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+  .processing-msg{
+    font-size: 15px;
+    color: var(--muted);
+    min-height: 22px;
+  }
+
+  /* Result screen */
+  .gauge-wrap{ display:flex; flex-direction:column; align-items:center; margin-bottom: 8px; }
+  .gauge-num{
+    font-family:'Fraunces', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--gold-soft);
+    margin-top: -64px;
+  }
+  .gauge-classif{
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight:600;
+    margin-bottom: 28px;
+  }
+
+  .result-card{
+    background: var(--navy-card);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 22px 22px 24px;
+    margin-bottom: 22px;
+  }
+  .result-card h2{ font-size: 21px; margin: 0 0 12px; color: var(--cream); }
+  .result-card p{ font-size: 14.5px; color: var(--muted); margin: 0 0 16px; }
+  .result-card ul{ margin:0; padding-left: 0; list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .result-card ul li{ font-size: 14px; color: var(--cream); display:flex; gap:10px; align-items:flex-start; }
+  .result-card ul li svg{ flex-shrink:0; margin-top:3px; }
+
+  .cta-card{
+    background: linear-gradient(150deg, rgba(201,162,75,0.14), rgba(44,122,117,0.08));
+    border: 1px solid rgba(201,162,75,0.3);
+    border-radius: var(--radius);
+    padding: 24px 22px;
+    text-align:center;
+  }
+  .cta-card .eyebrow{ color: var(--gold); }
+  .cta-card h3{ font-size: 20px; margin: 0 0 10px; }
+  .cta-card p{ font-size: 14px; color: var(--muted); margin: 0 0 20px; }
+  .cta-ref{ font-size:12px; color: var(--muted); margin-top:12px; }
+
+  .footer-note{
+    text-align:center;
+    font-size: 11.5px;
+    color: rgba(159,176,195,0.6);
+    padding: 24px 0 30px;
+  }
+
+  .error-msg{
+    color: var(--danger);
+    font-size: 13px;
+    margin: -8px 0 14px;
+    display:none;
+  }
+  .error-msg.show{ display:block; }
+</style>
+</head>
+<body>
+
+<div id="app">
+
+  <div class="topbar" id="topbar" style="display:none;">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0/13</div>
+  </div>
+
+  <!-- TELA 1 — LANDING -->
+  <section class="screen active" id="screen-landing">
+    <div class="eyebrow">Diagnóstico Gratuito</div>
+    <h1 class="headline">Descubra o Que Está Impedindo Você de Vender Seu Conhecimento em Espanhol</h1>
+    <p class="lede">Muitos profissionais acreditam que vender em espanhol significa apenas traduzir conteúdos, anúncios ou páginas. Na prática, os maiores obstáculos costumam estar na oferta, no posicionamento, na adaptação ao mercado e no processo de vendas.</p>
+    <p class="lede">Responda algumas perguntas rápidas e descubra qual é o principal gargalo que está impedindo sua entrada em mercados de língua espanhola.</p>
+
+    <ul class="benefits">
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="#C9A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Descubra seu principal gargalo</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="#C9A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Receba seu Índice de Prontidão Internacional</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="#C9A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Entenda o que precisa ser ajustado antes de investir mais tempo e dinheiro</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="#C9A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Saiba qual pode ser seu próximo passo</li>
+    </ul>
+
+    <div class="meta-row">
+      <span>⏱ 3 minutos</span>
+      <span>13 perguntas</span>
+      <span>100% gratuito</span>
+    </div>
+
+    <button class="btn-primary" onclick="startQuiz()">Iniciar Diagnóstico</button>
+  </section>
+
+  <!-- TELA DE PERGUNTAS (gerada dinamicamente) -->
+  <section class="screen" id="screen-question">
+    <h2 class="q-title" id="qTitle"></h2>
+    <div class="options" id="qOptions"></div>
+    <div id="qTextWrap" style="display:none;">
+      <textarea id="qTextInput" placeholder="Escreva aqui..."></textarea>
+      <button class="btn-primary" onclick="answerOpenQuestion()">Continuar</button>
+    </div>
+    <div class="nav-row">
+      <button class="btn-link" id="backBtn" onclick="goBack()">← Voltar</button>
+    </div>
+  </section>
+
+  <!-- CAPTURA DE LEAD -->
+  <section class="screen" id="screen-lead">
+    <div class="eyebrow">Última etapa</div>
+    <h2 class="q-title">Seu diagnóstico está pronto.</h2>
+    <p class="lede">Informe seus dados para visualizar seu resultado e receber seu Índice de Prontidão Internacional.</p>
+
+    <label class="field-label" for="leadNome">Nome</label>
+    <input type="text" id="leadNome" placeholder="Seu nome completo" />
+    <div class="error-msg" id="errNome">Digite seu nome.</div>
+
+    <label class="field-label" for="leadEmail">E-mail</label>
+    <input type="email" id="leadEmail" placeholder="voce@email.com" />
+    <div class="error-msg" id="errEmail">Digite um e-mail válido.</div>
+
+    <label class="field-label" for="leadWhats">WhatsApp</label>
+    <input type="tel" id="leadWhats" placeholder="(00) 00000-0000" />
+    <div class="error-msg" id="errWhats">Digite um número de WhatsApp válido.</div>
+
+    <button class="btn-primary" onclick="submitLead()">Ver Meu Resultado</button>
+  </section>
+
+  <!-- PROCESSAMENTO -->
+  <section class="screen" id="screen-processing">
+    <div class="processing-wrap">
+      <div class="spinner"></div>
+      <div class="processing-msg" id="processingMsg">Analisando suas respostas...</div>
+    </div>
+  </section>
+
+  <!-- RESULTADO -->
+  <section class="screen" id="screen-result">
+    <div class="gauge-wrap">
+      <svg width="220" height="130" viewBox="0 0 220 130" id="gaugeSvg">
+        <path d="M14 116 A96 96 0 0 1 206 116" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="14" stroke-linecap="round"/>
+        <path id="gaugeArc" d="M14 116 A96 96 0 0 1 206 116" fill="none" stroke="url(#gaugeGrad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="302" stroke-dashoffset="302"/>
+        <defs>
+          <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#2C7A75"/>
+            <stop offset="100%" stop-color="#C9A24B"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="gauge-num" id="gaugeNum">0</div>
+      <div class="gauge-classif" id="gaugeClassif">—</div>
+    </div>
+
+    <div class="result-card">
+      <h2 id="resultTitle">—</h2>
+      <p id="resultBody">—</p>
+      <ul id="resultSteps"></ul>
+    </div>
+
+    <div class="cta-card">
+      <div class="eyebrow">Próximo Passo</div>
+      <h3>Diagnóstico Estratégico de Expansão Internacional</h3>
+      <p>Sessão individual para analisar sua oferta, posicionamento, estrutura comercial e oportunidades de entrada em mercados de língua espanhola.</p>
+      <a class="btn-primary" id="ctaButton" href="#" target="_blank" style="display:inline-block; text-decoration:none;">Quero Meu Diagnóstico Estratégico</a>
+      <div class="cta-ref">Investimento de referência: R$997</div>
+    </div>
+
+    <div class="footer-note">Impulsa Samsin · Diagnóstico de Expansão Internacional</div>
+  </section>
+
+</div>
+
+<script>
+/* =====================================================================
+   CONFIGURAÇÃO — edite só esta parte antes de publicar
+===================================================================== */
+const CONFIG = {
+  WEBHOOK_URL: "https://script.google.com/macros/s/AKfycbyEKCaYnuSHlXg0YAoWTQQu-uJ-E6_DQxSlWSVJ5aatR8wktq1z9bkzT44Oip2HJpDn/exec",
+  WHATSAPP_NUMBER: "55998691532", // formato internacional, sem + nem espaços
+  WHATSAPP_MESSAGE: "Olá! Acabei de fazer o Diagnóstico de Expansão Internacional e quero saber mais sobre o Diagnóstico Estratégico.",
+};
+
+/* =====================================================================
+   BANCO DE PERGUNTAS
+===================================================================== */
+const DIAGNOSTIC_QUESTIONS = [
+  { id:"q1", pillar:"oferta", text:"Como descreveria sua oferta atualmente?", options:[
+    "Ainda estou estruturando minha oferta",
+    "Já vendo, mas de forma inconsistente",
+    "Tenho uma oferta validada e vendas recorrentes",
+    "Tenho uma oferta validada, vendas recorrentes e um processo comercial definido"
+  ]},
+  { id:"q2", pillar:"oferta", text:"Qual cenário melhor descreve os resultados que sua oferta já gerou?", options:[
+    "Ainda estou construindo meus primeiros casos de sucesso",
+    "Tenho alguns resultados e depoimentos pontuais",
+    "Tenho vários casos de sucesso documentados",
+    "Tenho resultados consistentes, depoimentos e provas que validam minha oferta"
+  ]},
+  { id:"q3", pillar:"internacionalizacao", text:"Se amanhã um potencial cliente do México, Colômbia ou Espanha demonstrasse interesse no seu trabalho, como você se sentiria preparado para atendê-lo?", options:[
+    "Não saberia por onde começar",
+    "Conseguiria atender, mas improvisando",
+    "Tenho parte da estrutura preparada",
+    "Já possuo um processo e materiais adaptáveis"
+  ]},
+  { id:"q4", pillar:"internacionalizacao", text:"O que você já fez para adaptar sua oferta para o mercado de língua espanhola?", options:[
+    "Ainda não fiz nenhuma adaptação",
+    "Apenas traduzi conteúdos ou materiais",
+    "Adaptei parte da comunicação e da oferta",
+    "Já adaptei oferta, comunicação e estratégia para um mercado específico"
+  ]},
+  { id:"q5", pillar:"processo", text:"Hoje, como você costuma conquistar novos clientes?", options:[
+    "Dependo principalmente de indicações e contatos pessoais",
+    "Produzo conteúdo ou faço anúncios, mas sem um processo claro de acompanhamento",
+    "Tenho ações recorrentes para gerar oportunidades e conversar com potenciais clientes",
+    "Possuo um processo estruturado para atrair, qualificar e converter novos clientes"
+  ]},
+  { id:"q6", pillar:"processo", text:"Se você decidisse iniciar sua expansão para o mercado espanhol nos próximos 90 dias, qual seria seu plano?", options:[
+    "Não saberia por onde começar",
+    "Traduziria meus conteúdos e tentaria atrair clientes",
+    "Tenho algumas ideias para validar esse mercado",
+    "Tenho um plano claro para atrair, atender e converter clientes em espanhol"
+  ]},
+  { id:"q7", pillar:null, tiebreak:true, text:"Qual destes desafios mais representa sua situação hoje?", options:[
+    "Ainda preciso validar melhor minha oferta",
+    "Não sei como adaptar minha oferta para outros países",
+    "Não sei como transformar interesse em vendas no mercado espanhol",
+    "Quero acelerar minha entrada em mercados de língua espanhola"
+  ]}
+];
+
+// bônus de pilar que cada alternativa da Q7 concede em caso de empate
+const Q7_TIEBREAK_BONUS = [
+  { oferta:1 },
+  { internacionalizacao:1 },
+  { processo:1 },
+  { oferta:1, internacionalizacao:1, processo:1 }
+];
+
+const QUALIFICATION_QUESTIONS = [
+  { id:"atuacao", text:"Qual melhor descreve sua atuação?", options:[
+    "Mentor ou consultor","Profissional da saúde","Empresário","Prestador de serviço","Infoprodutor","Outro"
+  ]},
+  { id:"tempoMercado", text:"Há quanto tempo você vende essa solução?", options:[
+    "Ainda não vendo","Menos de 1 ano","1 a 3 anos","Mais de 3 anos"
+  ]},
+  { id:"faturamento", text:"Seu faturamento mensal hoje está mais próximo de:", options:[
+    "Ainda não faturo","Até R$10 mil","R$10 mil a R$30 mil","R$30 mil a R$100 mil","Acima de R$100 mil"
+  ]},
+  { id:"experienciaInternacional", text:"Você já tentou vender em espanhol anteriormente?", options:[
+    "Nunca tentei","Já pensei nisso, mas nunca executei","Já tentei algumas ações isoladas","Já investi tempo ou dinheiro tentando vender em espanhol"
+  ]},
+  { id:"motivacao", text:"Por que você quer vender em espanhol?", options:[
+    "Diversificar minhas receitas","Crescer meu negócio","Escalar meu conhecimento","Aproveitar um mercado maior","Recebi demanda de outros países","Outro"
+  ]}
+];
+
+const OPEN_QUESTION = { id:"duvidaAberta", text:"Qual é sua maior dúvida sobre vender em espanhol?" };
+
+const ALL_STEPS = [...DIAGNOSTIC_QUESTIONS, ...QUALIFICATION_QUESTIONS, OPEN_QUESTION];
+
+const PROCESSING_MESSAGES = [
+  "Analisando suas respostas...",
+  "Identificando seu principal gargalo...",
+  "Calculando seu Índice de Prontidão Internacional...",
+  "Gerando seu diagnóstico..."
+];
+
+/* =====================================================================
+   TEXTOS DE DIAGNÓSTICO
+===================================================================== */
+const DIAGNOSES = {
+  oferta: {
+    title: "Sua Oferta Ainda Não Está Pronta para o Mercado em Espanhol",
+    body: "O gargalo não está no idioma — está antes dele. Sua oferta ainda não tem a validação e a consistência necessárias para sustentar uma operação internacional. Expandir agora significaria levar para um mercado novo uma instabilidade que já existe no Brasil, em um lugar onde você terá menos contexto, menos rede e menos margem de erro.",
+    steps: [
+      "Documentar e padronizar os resultados que sua oferta já entrega",
+      "Fechar o ciclo de prova social antes de pensar em tradução ou anúncio",
+      "Definir um processo replicável de entrega antes de multiplicar mercados"
+    ]
+  },
+  internacionalizacao: {
+    title: "Você Está Traduzindo, Não Internacionalizando",
+    body: "Sua oferta já funciona e gera resultado. O problema é que adaptar para o mercado espanhol virou sinônimo de traduzir textos — quando, na prática, envolve reposicionar a comunicação, ajustar referências culturais e redesenhar a forma como você se apresenta para alguém que nunca ouviu falar de você fora do Brasil.",
+    steps: [
+      "Mapear como seu posicionamento precisa mudar para falar com alguém no México, Colômbia ou Espanha",
+      "Reconstruir provas e referências que façam sentido fora do Brasil",
+      "Criar materiais nativos para esse público — não traduzidos"
+    ]
+  },
+  processo: {
+    title: "Seu Processo Comercial Ainda Não Está Preparado para Vender em Espanhol",
+    body: "Sua oferta já está validada e você já avançou em adaptação. O que está faltando é estrutura comercial: hoje você não tem um processo repetível para transformar o interesse de potenciais clientes de outros países em vendas reais.",
+    steps: [
+      "Estruturar um fluxo de atendimento e qualificação específico para leads de fora do Brasil",
+      "Criar um processo de follow-up e conversão adaptado a esse novo público",
+      "Definir os canais que vão sustentar geração de demanda nesse mercado"
+    ]
+  },
+  equilibrado: {
+    title: "Você Está Mais Perto do Mercado Espanhol do Que Imagina",
+    body: "Seus três pilares — oferta, internacionalização e processo comercial — estão em um nível alto e equilibrado. Isso é raro: a maioria dos profissionais que pensa em expandir trava em pelo menos um desses pontos. Seu próximo passo não é mais preparação, é validação real com tráfego e clientes de fato.",
+    steps: [
+      "Validar a oferta com um piloto pago em pelo menos um mercado específico",
+      "Testar sua comunicação adaptada com tráfego real, não apenas com sua rede atual",
+      "Definir metas claras de conversão para os primeiros 90 dias"
+    ]
+  }
+};
+
+function classifyIPI(ipi){
+  if (ipi <= 30) return "Baixa prontidão";
+  if (ipi <= 55) return "Prontidão moderada";
+  if (ipi <= 75) return "Pronto para validação";
+  return "Alta prontidão internacional";
+}
+
+/* =====================================================================
+   ESTADO
+===================================================================== */
+let currentStepIndex = -1; // -1 = landing
+const answers = {}; // id -> { value: string, score: number|null, optionIndex: number }
+
+function $(id){ return document.getElementById(id); }
+function showScreen(id){
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  $(id).classList.add("active");
+}
+
+function startQuiz(){
+  fbq('track', 'StartedQuiz');
+  $("topbar").style.display = "flex";
+  currentStepIndex = 0;
+  renderStep();
+}
+
+function updateProgress(){
+  const total = ALL_STEPS.length;
+  const pct = Math.round((currentStepIndex / total) * 100);
+  $("progressFill").style.width = pct + "%";
+  $("progressLabel").textContent = Math.min(currentStepIndex + 1, total) + "/" + total;
+}
+
+function renderStep(){
+  const step = ALL_STEPS[currentStepIndex];
+  updateProgress();
+  showScreen("screen-question");
+  $("qTitle").textContent = step.text;
+  $("backBtn").style.visibility = currentStepIndex === 0 ? "hidden" : "visible";
+
+  if (step.id === "duvidaAberta"){
+    $("qOptions").style.display = "none";
+    $("qTextWrap").style.display = "block";
+    $("qTextInput").value = answers[step.id] ? answers[step.id].value : "";
+  } else {
+    $("qOptions").style.display = "flex";
+    $("qTextWrap").style.display = "none";
+    const wrap = $("qOptions");
+    wrap.innerHTML = "";
+    step.options.forEach((label, idx) => {
+      const btn = document.createElement("button");
+      btn.className = "option";
+      btn.type = "button";
+      btn.textContent = label;
+      if (answers[step.id] && answers[step.id].optionIndex === idx) btn.classList.add("selected");
+      btn.onclick = () => selectOption(step, idx, label, btn);
+      wrap.appendChild(btn);
+    });
+  }
+}
+
+function selectOption(step, idx, label, btnEl){
+  document.querySelectorAll("#qOptions .option").forEach(o => o.classList.remove("selected"));
+  btnEl.classList.add("selected");
+
+  const score = idx + 1; // 1ª alternativa = 1 ponto ... 4ª/5ª = mais forte
+  answers[step.id] = { value: label, score: step.pillar !== undefined ? score : null, rawScore: score, optionIndex: idx, pillar: step.pillar, tiebreak: step.tiebreak };
+
+  setTimeout(() => {
+    if (currentStepIndex < ALL_STEPS.length - 1){
+      currentStepIndex++;
+      renderStep();
+    } else {
+      goToLeadCapture();
+    }
+  }, 280);
+}
+
+function answerOpenQuestion(){
+  const val = $("qTextInput").value.trim();
+  answers["duvidaAberta"] = { value: val, score:null };
+  if (currentStepIndex < ALL_STEPS.length - 1){
+    currentStepIndex++;
+    renderStep();
+  } else {
+    goToLeadCapture();
+  }
+}
+
+function goBack(){
+  if (currentStepIndex <= 0) return;
+  currentStepIndex--;
+  renderStep();
+}
+
+function goToLeadCapture(){
+  $("topbar").style.display = "none";
+  showScreen("screen-lead");
+}
+
+/* =====================================================================
+   CAPTURA DE LEAD + VALIDAÇÃO
+===================================================================== */
+function submitLead(){
+  const nome = $("leadNome").value.trim();
+  const email = $("leadEmail").value.trim();
+  const whats = $("leadWhats").value.trim();
+
+  let valid = true;
+  $("errNome").classList.remove("show");
+  $("errEmail").classList.remove("show");
+  $("errWhats").classList.remove("show");
+
+  if (nome.length < 2){ $("errNome").classList.add("show"); valid = false; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ $("errEmail").classList.add("show"); valid = false; }
+  if (whats.replace(/\D/g,"").length < 10){ $("errWhats").classList.add("show"); valid = false; }
+  if (!valid) return;
+
+  answers["__lead"] = { nome, email, whats };
+  fbq('track', 'Lead');
+
+  showScreen("screen-processing");
+  runProcessingSequence();
+}
+
+function runProcessingSequence(){
+  let i = 0;
+  $("processingMsg").textContent = PROCESSING_MESSAGES[0];
+  const interval = setInterval(() => {
+    i++;
+    if (i < PROCESSING_MESSAGES.length){
+      $("processingMsg").textContent = PROCESSING_MESSAGES[i];
+    }
+  }, 750);
+
+  setTimeout(() => {
+    clearInterval(interval);
+    const result = computeResult();
+    renderResult(result);
+    sendToWebhook(result);
+    showScreen("screen-result");
+    fbq('track', 'CompleteRegistration');
+  }, 3000);
+}
+
+/* =====================================================================
+   LÓGICA DE PONTUAÇÃO, DESEMPATE E IPI
+===================================================================== */
+function computeResult(){
+  const pillars = { oferta:0, internacionalizacao:0, processo:0 };
+  const pillarQuestionIds = { oferta:["q1","q2"], internacionalizacao:["q3","q4"], processo:["q5","q6"] };
+
+  Object.keys(pillarQuestionIds).forEach(p => {
+    pillarQuestionIds[p].forEach(qid => { pillars[p] += answers[qid].rawScore; });
+  });
+
+  // IPI = soma das 7 perguntas de diagnóstico / 28 * 100
+  const diagIds = ["q1","q2","q3","q4","q5","q6","q7"];
+  const ipiRaw = diagIds.reduce((sum, qid) => sum + answers[qid].rawScore, 0);
+  const ipi = Math.round((ipiRaw / 28) * 100);
+  const classificacao = classifyIPI(ipi);
+
+  // 1) Diagnóstico 4 — três pilares altos e equilibrados
+  const values = Object.values(pillars);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  let diagnosisKey;
+
+  if (min >= 6 && (max - min) <= 2){
+    diagnosisKey = "equilibrado";
+  } else {
+    // 2) menor pilar isolado
+    const minPillars = Object.keys(pillars).filter(p => pillars[p] === min);
+
+    if (minPillars.length === 1){
+      diagnosisKey = minPillars[0];
+    } else {
+      // 3) bônus de desempate da Q7
+      const bonus = Q7_TIEBREAK_BONUS[answers["q7"].optionIndex];
+      const adjusted = { ...pillars };
+      Object.keys(bonus).forEach(p => { adjusted[p] += bonus[p]; });
+
+      const adjustedMin = Math.min(...minPillars.map(p => adjusted[p]));
+      const stillTied = minPillars.filter(p => adjusted[p] === adjustedMin);
+
+      if (stillTied.length === 1){
+        diagnosisKey = stillTied[0];
+      } else {
+        // 4) menor resposta individual dentro do pilar
+        const individualMin = {};
+        stillTied.forEach(p => {
+          individualMin[p] = Math.min(...pillarQuestionIds[p].map(qid => answers[qid].rawScore));
+        });
+        const lowestIndividual = Math.min(...Object.values(individualMin));
+        const finalTied = stillTied.filter(p => individualMin[p] === lowestIndividual);
+
+        if (finalTied.length === 1){
+          diagnosisKey = finalTied[0];
+        } else {
+          // 5) prioridade fixa
+          const priority = ["oferta","internacionalizacao","processo"];
+          diagnosisKey = priority.find(p => finalTied.includes(p));
+        }
+      }
+    }
+  }
+
+  return { pillars, ipi, classificacao, diagnosisKey };
+}
+
+function renderResult(result){
+  const diag = DIAGNOSES[result.diagnosisKey];
+  $("resultTitle").textContent = diag.title;
+  $("resultBody").textContent = diag.body;
+
+  const stepsWrap = $("resultSteps");
+  stepsWrap.innerHTML = "";
+  diag.steps.forEach(step => {
+    const li = document.createElement("li");
+    li.innerHTML = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="margin-top:3px"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="#C9A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>'+step+'</span>';
+    stepsWrap.appendChild(li);
+  });
+
+  $("gaugeNum").textContent = result.ipi;
+  $("gaugeClassif").textContent = result.classificacao;
+
+  // anima o arco do gauge (comprimento total do path ~302)
+  const arcLength = 302;
+  const offset = arcLength - (arcLength * (result.ipi / 100));
+  const arcEl = $("gaugeArc");
+  requestAnimationFrame(() => {
+    arcEl.style.transition = "stroke-dashoffset 1.1s ease";
+    arcEl.style.strokeDashoffset = offset;
+  });
+
+  const waText = encodeURIComponent(CONFIG.WHATSAPP_MESSAGE);
+  $("ctaButton").href = "https://wa.me/" + CONFIG.WHATSAPP_NUMBER + "?text=" + waText;
+}
+
+/* =====================================================================
+   ENVIO PARA GOOGLE SHEETS (via Apps Script Web App) — fire and forget
+===================================================================== */
+function sendToWebhook(result){
+  if (!CONFIG.WEBHOOK_URL || CONFIG.WEBHOOK_URL.indexOf("COLE_AQUI") === 0){
+    console.warn("WEBHOOK_URL não configurada — lead não foi enviado para a planilha.");
+    return;
+  }
+
+  const lead = answers["__lead"];
+  const payload = {
+    timestamp: new Date().toISOString(),
+    nome: lead.nome,
+    email: lead.email,
+    whatsapp: lead.whats,
+    diagnostico: DIAGNOSES[result.diagnosisKey].title,
+    ipi: result.ipi,
+    classificacao: result.classificacao,
+    pilarOferta: result.pillars.oferta,
+    pilarInternacionalizacao: result.pillars.internacionalizacao,
+    pilarProcesso: result.pillars.processo,
+    atuacao: answers["atuacao"] ? answers["atuacao"].value : "",
+    tempoMercado: answers["tempoMercado"] ? answers["tempoMercado"].value : "",
+    faturamento: answers["faturamento"] ? answers["faturamento"].value : "",
+    experienciaInternacional: answers["experienciaInternacional"] ? answers["experienciaInternacional"].value : "",
+    motivacao: answers["motivacao"] ? answers["motivacao"].value : "",
+    duvidaAberta: answers["duvidaAberta"] ? answers["duvidaAberta"].value : "",
+    respostasDiagnostico: ["q1","q2","q3","q4","q5","q6","q7"].map(id => answers[id].value)
+  };
+
+  fetch(CONFIG.WEBHOOK_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(payload)
+  }).catch(err => console.error("Falha ao enviar lead para o webhook:", err));
+}
+</script>
+</body>
+</html>
