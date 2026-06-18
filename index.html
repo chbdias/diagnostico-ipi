@@ -305,6 +305,9 @@ fbq('track', 'PageView');
   }
   .result-card h2{ font-size: 21px; margin: 0 0 12px; color: var(--cream); }
   .result-card p{ font-size: 14.5px; color: var(--muted); margin: 0 0 16px; }
+  .result-section{ margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .result-section:first-of-type{ margin-top: 0; padding-top: 0; border-top: 0; }
+  .result-section h3{ font-family:'Inter', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-soft); margin: 0 0 8px; }
   .result-card ul{ margin:0; padding-left: 0; list-style:none; display:flex; flex-direction:column; gap:10px; }
   .result-card ul li{ font-size: 14px; color: var(--cream); display:flex; gap:10px; align-items:flex-start; }
   .result-card ul li svg{ flex-shrink:0; margin-top:3px; }
@@ -401,6 +404,7 @@ fbq('track', 'PageView');
     <div class="error-msg" id="errWhats">Digite um número de WhatsApp válido.</div>
 
     <button class="btn-primary" onclick="submitLead()">Ver Meu Resultado</button>
+    <button class="btn-link" onclick="backToLastQuestion()">← Voltar para revisar respostas</button>
   </section>
 
   <!-- PROCESSAMENTO -->
@@ -430,8 +434,7 @@ fbq('track', 'PageView');
 
     <div class="result-card">
       <h2 id="resultTitle">—</h2>
-      <p id="resultBody">—</p>
-      <ul id="resultSteps"></ul>
+      <div id="resultContent"></div>
     </div>
 
     <div class="cta-card">
@@ -439,7 +442,6 @@ fbq('track', 'PageView');
       <h3>Diagnóstico Estratégico de Expansão Internacional</h3>
       <p>Sessão individual para analisar sua oferta, posicionamento, estrutura comercial e oportunidades de entrada em mercados de língua espanhola.</p>
       <a class="btn-primary" id="ctaButton" href="#" target="_blank" style="display:inline-block; text-decoration:none;">Quero Meu Diagnóstico Estratégico</a>
-      <div class="cta-ref">Investimento de referência: R$997</div>
     </div>
 
     <div class="footer-note">Impulsa Samsin · Diagnóstico de Expansão Internacional</div>
@@ -453,7 +455,7 @@ fbq('track', 'PageView');
 ===================================================================== */
 const CONFIG = {
   WEBHOOK_URL: "https://script.google.com/macros/s/AKfycbyEKCaYnuSHlXg0YAoWTQQu-uJ-E6_DQxSlWSVJ5aatR8wktq1z9bkzT44Oip2HJpDn/exec",
-  WHATSAPP_NUMBER: "55998691532", // formato internacional, sem + nem espaços
+  WHATSAPP_NUMBER: "5511998691532", // formato internacional, sem + nem espaços
   WHATSAPP_MESSAGE: "Olá! Acabei de fazer o Diagnóstico de Expansão Internacional e quero saber mais sobre o Diagnóstico Estratégico.",
 };
 
@@ -548,38 +550,62 @@ const PROCESSING_MESSAGES = [
 const DIAGNOSES = {
   oferta: {
     title: "Sua Oferta Ainda Não Está Pronta para o Mercado em Espanhol",
-    body: "O gargalo não está no idioma — está antes dele. Sua oferta ainda não tem a validação e a consistência necessárias para sustentar uma operação internacional. Expandir agora significaria levar para um mercado novo uma instabilidade que já existe no Brasil, em um lugar onde você terá menos contexto, menos rede e menos margem de erro.",
+    sections: {
+      significado: "Seu conhecimento pode ter valor e até já gerar resultados no Brasil, mas isso não significa que a oferta esteja pronta para ser vendida em países de língua espanhola. Neste momento, o principal ponto de atenção está na estrutura da oferta: promessa, validação, provas, entrega e clareza comercial.",
+      acontecendo: "Provavelmente você possui experiência, conhecimento ou um método com potencial, mas ainda falta organizar essa oferta para que ela seja compreendida, desejada e comprada por um público internacional. Talvez a oferta ainda esteja muito conectada à realidade brasileira, dependa de exemplos locais ou ainda não tenha provas suficientes para sustentar uma expansão.",
+      erro: "O erro mais comum é tentar traduzir a página, os anúncios ou as aulas antes de revisar se a oferta está madura o suficiente. Quando isso acontece, a expansão apenas leva para outro mercado uma fragilidade que já existia antes.",
+      oportunidade: "A boa notícia é que esse problema pode ser corrigido antes de grandes investimentos. Na maioria dos casos, não é necessário criar um novo produto do zero. É necessário ajustar a forma como ele é apresentado, validado e posicionado para o mercado certo.",
+      proximo: "Antes de investir em tradução, tráfego ou lançamento em espanhol, vale entender quais ajustes sua oferta precisa para ter mais chances de validação em outro país."
+    },
     steps: [
-      "Documentar e padronizar os resultados que sua oferta já entrega",
-      "Fechar o ciclo de prova social antes de pensar em tradução ou anúncio",
-      "Definir um processo replicável de entrega antes de multiplicar mercados"
+      "Revisar sua oferta pensando em quem compra e não apenas no que você entrega",
+      "Documentar resultados, depoimentos e provas que sustentem sua promessa",
+      "Identificar quais partes da sua comunicação dependem demais da realidade brasileira"
     ]
   },
   internacionalizacao: {
     title: "Você Está Traduzindo, Não Internacionalizando",
-    body: "Sua oferta já funciona e gera resultado. O problema é que adaptar para o mercado espanhol virou sinônimo de traduzir textos — quando, na prática, envolve reposicionar a comunicação, ajustar referências culturais e redesenhar a forma como você se apresenta para alguém que nunca ouviu falar de você fora do Brasil.",
+    sections: {
+      significado: "Você já deu alguns passos em direção ao mercado de língua espanhola. Talvez tenha traduzido conteúdos, páginas, anúncios, apresentações ou até mesmo seu curso. O problema é que internacionalizar um negócio não significa apenas trocar o idioma.",
+      acontecendo: "Na maioria dos casos, esse cenário acontece quando a oferta já funciona no Brasil e o profissional tenta replicar o mesmo modelo em outros países: traduz a página, mantém a mesma promessa, usa os mesmos argumentos, preserva a mesma precificação e espera o mesmo comportamento de compra.",
+      erro: "O erro mais comum é tratar todos os países de língua espanhola como se fossem um único mercado. Embora compartilhem o espanhol como idioma principal, cada país possui expressões, referências culturais, hábitos de consumo e processos de decisão próprios. Muitas vezes a tradução está correta, mas a oferta continua estruturada para um comprador brasileiro.",
+      oportunidade: "Você provavelmente já possui algo valioso: uma oferta que funciona. O desafio não é começar do zero. O desafio é adaptar o que já funciona para um novo contexto, escolhendo melhor o país, a linguagem, os exemplos, os argumentos e a forma de apresentação.",
+      proximo: "Antes de investir mais dinheiro em tradução, tráfego ou produção de conteúdo, é importante entender quais elementos da sua oferta precisam ser adaptados para o mercado que você deseja atingir."
+    },
     steps: [
-      "Mapear como seu posicionamento precisa mudar para falar com alguém no México, Colômbia ou Espanha",
-      "Reconstruir provas e referências que façam sentido fora do Brasil",
-      "Criar materiais nativos para esse público — não traduzidos"
+      "Escolher um mercado prioritário em vez de tentar vender para todos os países ao mesmo tempo",
+      "Revisar promessa, comunicação e argumentos de venda considerando esse mercado específico",
+      "Adaptar a experiência completa do cliente, da captação até o fechamento"
     ]
   },
   processo: {
     title: "Seu Processo Comercial Ainda Não Está Preparado para Vender em Espanhol",
-    body: "Sua oferta já está validada e você já avançou em adaptação. O que está faltando é estrutura comercial: hoje você não tem um processo repetível para transformar o interesse de potenciais clientes de outros países em vendas reais.",
+    sections: {
+      significado: "Sua oferta pode ter potencial e talvez você já tenha conhecimento, experiência e resultados suficientes para atuar em mercados de língua espanhola. O desafio não está apenas em gerar interesse. O desafio está em transformar esse interesse em vendas.",
+      acontecendo: "Muitos profissionais entram em mercados de língua espanhola acreditando que o processo de compra será semelhante ao do Brasil. Criam anúncios, produzem conteúdo, geram cliques e recebem mensagens, mas as vendas não acontecem no volume esperado. Em muitos mercados hispanos, a decisão de compra acontece através da interação e da construção de confiança.",
+      erro: "O erro mais comum é acreditar que gerar tráfego é o mesmo que gerar vendas. O lead chega, mas o processo continua esperando que ele tome a decisão sozinho. A página explica, o vídeo explica, o anúncio explica, mas ninguém conduz a conversa, esclarece dúvidas e fortalece a confiança necessária para a compra.",
+      oportunidade: "Em muitos casos, o crescimento está escondido nas oportunidades que já estão chegando. Quando existe um processo comercial adaptado ao comportamento do mercado, a mesma quantidade de leads pode gerar resultados melhores. O problema nem sempre está na falta de pessoas interessadas, mas na forma como essas pessoas são acompanhadas até a decisão de compra.",
+      proximo: "Antes de investir mais em tráfego, conteúdo ou marketing, é importante entender se sua estrutura comercial está preparada para transformar interesse em vendas no mercado de língua espanhola."
+    },
     steps: [
-      "Estruturar um fluxo de atendimento e qualificação específico para leads de fora do Brasil",
-      "Criar um processo de follow-up e conversão adaptado a esse novo público",
-      "Definir os canais que vão sustentar geração de demanda nesse mercado"
+      "Mapear a jornada do cliente desde o primeiro contato até a compra",
+      "Identificar onde os potenciais clientes deixam de responder ou perdem interesse",
+      "Estruturar um processo de acompanhamento que gere confiança e facilite a decisão"
     ]
   },
   equilibrado: {
     title: "Você Está Mais Perto do Mercado Espanhol do Que Imagina",
-    body: "Seus três pilares — oferta, internacionalização e processo comercial — estão em um nível alto e equilibrado. Isso é raro: a maioria dos profissionais que pensa em expandir trava em pelo menos um desses pontos. Seu próximo passo não é mais preparação, é validação real com tráfego e clientes de fato.",
+    sections: {
+      significado: "Os sinais mostram que você já possui diversos elementos importantes para iniciar sua expansão para mercados de língua espanhola. Sua oferta demonstra maturidade, existe uma base de resultados e você já compreende que vender em espanhol exige adaptação cultural, comercial e estratégica.",
+      acontecendo: "Neste momento, o maior desafio provavelmente não é criar uma nova oferta. O que falta é clareza sobre qual país atacar primeiro, como estruturar a entrada e quais adaptações devem ser priorizadas. Muitas vezes a oferta está boa, mas pequenos detalhes de país, linguagem, pagamento, atendimento ou jornada de compra travam a validação.",
+      erro: "O erro mais comum neste estágio é tentar acelerar demais: escolher vários países ao mesmo tempo, traduzir todos os materiais, criar uma operação complexa e investir em tráfego antes de validar os ajustes essenciais. Expandir não significa fazer tudo ao mesmo tempo. Normalmente significa escolher corretamente onde começar.",
+      oportunidade: "Você já possui uma vantagem que muitos profissionais ainda estão tentando construir: oferta, resultados e conhecimento acumulado. O que separa quem valida de quem desiste muitas vezes são pequenos ajustes na comunicação, no país escolhido, na experiência de compra e no processo comercial.",
+      proximo: "O desafio agora é identificar quais ajustes podem acelerar seus resultados e evitar erros que normalmente custam tempo, dinheiro e meses de tentativa e erro."
+    },
     steps: [
-      "Validar a oferta com um piloto pago em pelo menos um mercado específico",
-      "Testar sua comunicação adaptada com tráfego real, não apenas com sua rede atual",
-      "Definir metas claras de conversão para os primeiros 90 dias"
+      "Escolher um país prioritário alinhado ao seu tipo de oferta e ao perfil do público",
+      "Validar comunicação, oferta e processo comercial antes de investir em escala",
+      "Usar os primeiros contatos para entender como esse mercado pergunta, decide e compra"
     ]
   }
 };
@@ -797,15 +823,35 @@ function computeResult(){
 function renderResult(result){
   const diag = DIAGNOSES[result.diagnosisKey];
   $("resultTitle").textContent = diag.title;
-  $("resultBody").textContent = diag.body;
 
-  const stepsWrap = $("resultSteps");
-  stepsWrap.innerHTML = "";
+  const content = $("resultContent");
+  content.innerHTML = "";
+
+  const addSection = (title, text) => {
+    const section = document.createElement("div");
+    section.className = "result-section";
+    section.innerHTML = `<h3>${title}</h3><p>${text}</p>`;
+    content.appendChild(section);
+  };
+
+  addSection("O que isso significa", diag.sections.significado);
+  addSection("O que provavelmente está acontecendo", diag.sections.acontecendo);
+  addSection("O erro mais comum", diag.sections.erro);
+  addSection("A oportunidade", diag.sections.oportunidade);
+
+  const stepsSection = document.createElement("div");
+  stepsSection.className = "result-section";
+  stepsSection.innerHTML = "<h3>O que fazer agora</h3>";
+  const ul = document.createElement("ul");
   diag.steps.forEach(step => {
     const li = document.createElement("li");
     li.innerHTML = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="margin-top:3px"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="#C9A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>'+step+'</span>';
-    stepsWrap.appendChild(li);
+    ul.appendChild(li);
   });
+  stepsSection.appendChild(ul);
+  content.appendChild(stepsSection);
+
+  addSection("Próximo passo recomendado", diag.sections.proximo);
 
   $("gaugeNum").textContent = result.ipi;
   $("gaugeClassif").textContent = result.classificacao;
@@ -814,6 +860,7 @@ function renderResult(result){
   const arcLength = 302;
   const offset = arcLength - (arcLength * (result.ipi / 100));
   const arcEl = $("gaugeArc");
+  arcEl.style.strokeDashoffset = arcLength;
   requestAnimationFrame(() => {
     arcEl.style.transition = "stroke-dashoffset 1.1s ease";
     arcEl.style.strokeDashoffset = offset;
@@ -821,6 +868,12 @@ function renderResult(result){
 
   const waText = encodeURIComponent(CONFIG.WHATSAPP_MESSAGE);
   $("ctaButton").href = "https://wa.me/" + CONFIG.WHATSAPP_NUMBER + "?text=" + waText;
+}
+
+function backToLastQuestion(){
+  $("topbar").style.display = "flex";
+  currentStepIndex = ALL_STEPS.length - 1;
+  renderStep();
 }
 
 /* =====================================================================
@@ -839,6 +892,8 @@ function sendToWebhook(result){
     email: lead.email,
     whatsapp: lead.whats,
     diagnostico: DIAGNOSES[result.diagnosisKey].title,
+    diagnosticoCompleto: DIAGNOSES[result.diagnosisKey].sections,
+    proximosPassos: DIAGNOSES[result.diagnosisKey].steps,
     ipi: result.ipi,
     classificacao: result.classificacao,
     pilarOferta: result.pillars.oferta,
@@ -853,11 +908,14 @@ function sendToWebhook(result){
     respostasDiagnostico: ["q1","q2","q3","q4","q5","q6","q7"].map(id => answers[id].value)
   };
 
+  // FormData resolve o problema do redirect 302 do Apps Script com no-cors
+  const formData = new FormData();
+  formData.append("payload", JSON.stringify(payload));
+
   fetch(CONFIG.WEBHOOK_URL, {
     method: "POST",
     mode: "no-cors",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify(payload)
+    body: formData
   }).catch(err => console.error("Falha ao enviar lead para o webhook:", err));
 }
 </script>
